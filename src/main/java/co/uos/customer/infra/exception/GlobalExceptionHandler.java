@@ -28,7 +28,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ServiceResponse> dataNotFoundException(ResourceNotFoundException ex) {
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 ServiceResponse.builder()
                         .message(ex.getMessage())
                         .error(ex.getMessage())

@@ -1,6 +1,5 @@
 package co.uos.customer.controller;
 
-import co.uos.customer.dto.customer.CustomerDTO;
 import co.uos.customer.infra.ServiceResponse;
 import co.uos.customer.service.customer.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,11 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/api/v1/customers")
 @Tag(name = "Customer", description = "Customer Service Documentation")
 public class CustomerController {
 
@@ -36,17 +34,16 @@ public class CustomerController {
                 .build());
     }
 
-    @GetMapping
+    @GetMapping(value = {"/list", "/list/{status}"})
     @Operation(summary = "Get All Customers", description = "Listing All Customers Optional Status Method")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Customer List Has Been Successfully Fetched!")
     })
-    public ResponseEntity<ServiceResponse> getCustomers() {
-        List<CustomerDTO> customerList = customerService.getCustomerList();
+    public ResponseEntity<ServiceResponse> getCustomers(@PathVariable(required = false) Boolean status) {
         return ResponseEntity.ok(ServiceResponse.builder()
                 .success(true)
                 .message("Customer List Has Been Successfully Fetched!")
-                .data(customerList)
+                .data(customerService.getCustomerList(status))
                 .build());
     }
 }

@@ -20,24 +20,23 @@ public class CustomerServiceJpaImpl implements CustomerService {
 
     @Override
     public CustomerDTO getCustomer(Integer customerId) {
-        return customerMapper.toDto(customerRepository.findById(customerId)
+        return customerMapper.toDto(customerRepository.findByCustomerId(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("There is no customer registered by this customer id!")));
     }
 
     @Override
-    public List<CustomerDTO> getCustomerList() {
-        List<Customer> customerList = customerRepository.findAll();
-        if(customerList.isEmpty()) {
-            throw new ResourceNotFoundException("There is no customers!");
-        }
-        return customerMapper.toListDto(customerList);
-    }
-
-    @Override
     public List<CustomerDTO> getCustomerList(Boolean status) {
-        List<Customer> customerList = customerRepository.findAllByStatus(status);
-        if(customerList.isEmpty()) {
-            throw new ResourceNotFoundException(String.format("There is no %s customers!", status ? "active" : "archive"));
+        List<Customer> customerList;
+        if(status != null) {
+            customerList = customerRepository.findAllByStatus(status);
+            if(customerList.isEmpty()) {
+                throw new ResourceNotFoundException(String.format("There is no %s customers!", status ? "active" : "archive"));
+            }
+        } else {
+            customerList = customerRepository.findAll();
+            if(customerList.isEmpty()) {
+                throw new ResourceNotFoundException("There is no customers!");
+            }
         }
         return customerMapper.toListDto(customerList);
     }
