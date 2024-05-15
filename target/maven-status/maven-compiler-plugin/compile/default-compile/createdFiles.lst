@@ -6,6 +6,7 @@ co/uos/customer/CustomerApplication.class
 co/uos/customer/util/exception/ResourceNotFoundException.class
 co/uos/customer/entity/order/Order$OrderBuilder.class
 co/uos/customer/config/SchedulerConfig.class
+co/uos/customer/payload/CustomerPayload.class
 co/uos/customer/batch/CustomerProcessor.class
 co/uos/customer/infra/ServiceResponse$ServiceResponseBuilder.class
 co/uos/customer/mapper/BaseMapperImpl.class
@@ -18,7 +19,6 @@ co/uos/customer/service/customer/CustomerService.class
 co/uos/customer/dto/customer/CustomerDTO$CustomerDTOBuilder.class
 co/uos/customer/infra/exception/GlobalExceptionHandler.class
 co/uos/customer/mapper/order/OrderMapperImpl.class
-co/uos/customer/batch/RestCustomerReader.class
 co/uos/customer/controller/OrderController.class
 co/uos/customer/entity/EntityModel.class
 co/uos/customer/repository/order/OrderJpaRepository.class
@@ -31,6 +31,7 @@ co/uos/customer/entity/customer/Customer$CustomerBuilder.class
 co/uos/customer/dto/order/OrderDTO.class
 co/uos/customer/entity/order/Order.class
 co/uos/customer/mapper/order/OrderMapper.class
+co/uos/customer/payload/CustomerPayload$CustomerPayloadBuilder.class
 co/uos/customer/service/order/jpaimpl/OrderServiceJpaImpl.class
 co/uos/customer/mapper/customer/CustomerMapperImpl.class
 co/uos/customer/dto/customer/CustomerDTO.class

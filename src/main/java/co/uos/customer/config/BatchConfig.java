@@ -4,6 +4,8 @@ import co.uos.customer.batch.CustomerProcessor;
 import co.uos.customer.batch.CustomerTasklet;
 import co.uos.customer.batch.CustomerWriter;
 import co.uos.customer.dto.customer.CustomerDTO;
+import co.uos.customer.mapper.customer.CustomerMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepScope;
@@ -22,7 +24,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import java.util.List;
 
 @Configuration
+@RequiredArgsConstructor
 public class BatchConfig {
+
+    private final CustomerMapper customerMapper;
 
     @Bean
     public Job customerReaderJob(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
@@ -35,7 +40,7 @@ public class BatchConfig {
     @Bean
     public Step taskletStep(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager) {
         return new StepBuilder("taskletStep", jobRepository)
-                .tasklet(new CustomerTasklet(), platformTransactionManager)
+                .tasklet(new CustomerTasklet(customerMapper), platformTransactionManager)
                 .build();
     }
 

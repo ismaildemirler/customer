@@ -4,6 +4,7 @@ import co.uos.customer.dto.customer.CustomerDTO;
 import co.uos.customer.dto.order.OrderDTO;
 import co.uos.customer.entity.customer.Customer;
 import co.uos.customer.entity.order.Order;
+import co.uos.customer.payload.CustomerPayload;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-15T09:02:31+0100",
+    date = "2024-05-15T11:09:33+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 @Component
@@ -68,6 +69,44 @@ public class CustomerMapperImpl implements CustomerMapper {
         List<CustomerDTO> list = new ArrayList<CustomerDTO>( Customers.size() );
         for ( Customer customer : Customers ) {
             list.add( toDto( customer ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public CustomerPayload toPayload(CustomerDTO customerDTO) {
+        if ( customerDTO == null ) {
+            return null;
+        }
+
+        CustomerPayload.CustomerPayloadBuilder customerPayload = CustomerPayload.builder();
+
+        customerPayload.customerId( customerDTO.getCustomerId() );
+        customerPayload.firstname( customerDTO.getFirstname() );
+        customerPayload.surname( customerDTO.getSurname() );
+        customerPayload.email( customerDTO.getEmail() );
+        customerPayload.address( customerDTO.getAddress() );
+        customerPayload.zipCode( customerDTO.getZipCode() );
+        customerPayload.region( customerDTO.getRegion() );
+        customerPayload.status( customerDTO.getStatus() );
+        List<OrderDTO> list = customerDTO.getOrders();
+        if ( list != null ) {
+            customerPayload.orders( new ArrayList<OrderDTO>( list ) );
+        }
+
+        return customerPayload.build();
+    }
+
+    @Override
+    public List<CustomerPayload> toListPayload(List<CustomerDTO> CustomerDTO) {
+        if ( CustomerDTO == null ) {
+            return null;
+        }
+
+        List<CustomerPayload> list = new ArrayList<CustomerPayload>( CustomerDTO.size() );
+        for ( CustomerDTO customerDTO : CustomerDTO ) {
+            list.add( toPayload( customerDTO ) );
         }
 
         return list;

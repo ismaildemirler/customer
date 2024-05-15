@@ -4,6 +4,7 @@
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/service/customer/jpaimpl/CustomerServiceJpaImpl.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/CustomerApplication.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/mapper/customer/CustomerMapper.java
+/Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/payload/CustomerPayload.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/batch/CustomerProcessor.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/service/order/OrderService.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/dto/customer/CustomerDTO.java
@@ -11,7 +12,6 @@
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/mapper/BaseMapper.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/batch/CustomerTasklet.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/entity/customer/Customer.java
-/Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/batch/RestCustomerReader.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/batch/CustomerWriter.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/service/order/jpaimpl/OrderServiceJpaImpl.java
 /Users/ismaildemirler/MYWORKS/UniversityOfSheffield/customer/src/main/java/co/uos/customer/dto/order/OrderDTO.java
