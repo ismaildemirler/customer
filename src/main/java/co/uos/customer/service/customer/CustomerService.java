@@ -8,5 +8,5 @@ public interface CustomerService {
 
     CustomerDTO getCustomer(Integer customerId);
 
-    List<CustomerDTO> getCustomerList(Boolean status);
+    List<CustomerDTO> getCustomerList(String status);
 }

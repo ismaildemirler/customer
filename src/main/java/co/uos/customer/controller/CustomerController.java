@@ -39,7 +39,7 @@ public class CustomerController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Customer List Has Been Successfully Fetched!")
     })
-    public ResponseEntity<ServiceResponse> getCustomers(@PathVariable(required = false) Boolean status) {
+    public ResponseEntity<ServiceResponse> getCustomers(@PathVariable(required = false) String status) {
         return ResponseEntity.ok(ServiceResponse.builder()
                 .success(true)
                 .message("Customer List Has Been Successfully Fetched!")

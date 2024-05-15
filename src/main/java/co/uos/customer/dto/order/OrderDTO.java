@@ -17,6 +17,5 @@ public class OrderDTO implements DTOModel {
 
     private Integer orderId;
     private Date date;
-    private CustomerDTO customerId;
     private Double amount;
 }

@@ -7,9 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Builder
@@ -36,8 +34,8 @@ public class Customer implements EntityModel {
 
     private String region;
 
-    private Boolean status;
+    private String status;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
-    private Set<Order> orders = new HashSet<>();
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Order> orders;
 }

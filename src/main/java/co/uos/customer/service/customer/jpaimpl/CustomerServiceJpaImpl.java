@@ -1,15 +1,18 @@
 package co.uos.customer.service.customer.jpaimpl;
 
 import co.uos.customer.dto.customer.CustomerDTO;
+import co.uos.customer.dto.order.OrderDTO;
 import co.uos.customer.entity.customer.Customer;
 import co.uos.customer.mapper.customer.CustomerMapper;
 import co.uos.customer.repository.customer.CustomerJpaRepository;
 import co.uos.customer.service.customer.CustomerService;
+import co.uos.customer.service.order.OrderService;
 import co.uos.customer.util.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,12 +28,12 @@ public class CustomerServiceJpaImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDTO> getCustomerList(Boolean status) {
+    public List<CustomerDTO> getCustomerList(String status) {
         List<Customer> customerList;
         if(status != null) {
             customerList = customerRepository.findAllByStatus(status);
             if(customerList.isEmpty()) {
-                throw new ResourceNotFoundException(String.format("There is no %s customers!", status ? "active" : "archive"));
+                throw new ResourceNotFoundException(String.format("There is no %s customers!", status));
             }
         } else {
             customerList = customerRepository.findAll();
@@ -38,6 +41,7 @@ public class CustomerServiceJpaImpl implements CustomerService {
                 throw new ResourceNotFoundException("There is no customers!");
             }
         }
+
         return customerMapper.toListDto(customerList);
     }
 }

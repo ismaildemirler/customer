@@ -5,15 +5,13 @@ import co.uos.customer.dto.order.OrderDTO;
 import co.uos.customer.entity.customer.Customer;
 import co.uos.customer.entity.order.Order;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-14T21:14:06+0100",
+    date = "2024-05-15T07:21:11+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 @Component
@@ -35,7 +33,7 @@ public class CustomerMapperImpl implements CustomerMapper {
         customer.zipCode( customerDTO.getZipCode() );
         customer.region( customerDTO.getRegion() );
         customer.status( customerDTO.getStatus() );
-        customer.orders( orderDTOSetToOrderSet( customerDTO.getOrders() ) );
+        customer.orders( orderDTOListToOrderList( customerDTO.getOrders() ) );
 
         return customer.build();
     }
@@ -56,7 +54,7 @@ public class CustomerMapperImpl implements CustomerMapper {
         customerDTO.zipCode( customer.getZipCode() );
         customerDTO.region( customer.getRegion() );
         customerDTO.status( customer.getStatus() );
-        customerDTO.orders( orderSetToOrderDTOSet( customer.getOrders() ) );
+        customerDTO.orders( orderListToOrderDTOList( customer.getOrders() ) );
 
         return customerDTO.build();
     }
@@ -89,17 +87,17 @@ public class CustomerMapperImpl implements CustomerMapper {
         return order.build();
     }
 
-    protected Set<Order> orderDTOSetToOrderSet(Set<OrderDTO> set) {
-        if ( set == null ) {
+    protected List<Order> orderDTOListToOrderList(List<OrderDTO> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<Order> set1 = new LinkedHashSet<Order>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( OrderDTO orderDTO : set ) {
-            set1.add( orderDTOToOrder( orderDTO ) );
+        List<Order> list1 = new ArrayList<Order>( list.size() );
+        for ( OrderDTO orderDTO : list ) {
+            list1.add( orderDTOToOrder( orderDTO ) );
         }
 
-        return set1;
+        return list1;
     }
 
     protected OrderDTO orderToOrderDTO(Order order) {
@@ -116,16 +114,16 @@ public class CustomerMapperImpl implements CustomerMapper {
         return orderDTO.build();
     }
 
-    protected Set<OrderDTO> orderSetToOrderDTOSet(Set<Order> set) {
-        if ( set == null ) {
+    protected List<OrderDTO> orderListToOrderDTOList(List<Order> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<OrderDTO> set1 = new LinkedHashSet<OrderDTO>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( Order order : set ) {
-            set1.add( orderToOrderDTO( order ) );
+        List<OrderDTO> list1 = new ArrayList<OrderDTO>( list.size() );
+        for ( Order order : list ) {
+            list1.add( orderToOrderDTO( order ) );
         }
 
-        return set1;
+        return list1;
     }
 }

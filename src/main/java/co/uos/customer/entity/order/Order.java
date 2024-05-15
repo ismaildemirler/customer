@@ -14,8 +14,8 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "order")
-@Entity(name = "order")
+@Table(name = "orders")
+@Entity(name = "orders")
 public class Order implements EntityModel {
 
     @Id

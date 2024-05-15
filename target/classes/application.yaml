@@ -3,6 +3,12 @@ spring:
   profiles:
     active: dev
 
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+
   # Database configuration
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -31,3 +37,4 @@ logging:
 # Server configuration
 server:
   port: 8080
+
