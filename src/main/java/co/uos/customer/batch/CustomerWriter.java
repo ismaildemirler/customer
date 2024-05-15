@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequiredArgsConstructor
 public class CustomerWriter implements ItemWriter<CustomerDTO> {
 
-
     @Override
     public void write(Chunk<? extends CustomerDTO> chunk) throws Exception {
         log.info("Writing: {}", chunk.getItems().size());

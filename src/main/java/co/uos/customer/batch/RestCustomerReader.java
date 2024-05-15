@@ -23,7 +23,7 @@ public class RestCustomerReader implements ItemReader<CustomerDTO> {
     private List<CustomerDTO> customerList;
 
     @Override
-    public CustomerDTO read() throws Exception {
+    public CustomerDTO read() {
         if (this.customerList == null) {
             customerList = fetchCustomers();
         }

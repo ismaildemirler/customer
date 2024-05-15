@@ -11,7 +11,6 @@ public class CustomerTasklet implements Tasklet {
 
     int counter = 0;
 
-
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
         log.info("Execution tasklet");

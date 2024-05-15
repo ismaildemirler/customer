@@ -45,7 +45,7 @@ public class BatchConfig {
     @Bean
     @StepScope
     public ItemReader<CustomerDTO> restCustomerReader() {
-        return new RestCustomerReader("http://localhost:8080/api/v1/customers", new RestTemplate());
+        return new RestCustomerReader("http://localhost:8080/api/v1/customers/list", new RestTemplate());
     }
 
     @Bean
