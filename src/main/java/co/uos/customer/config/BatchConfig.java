@@ -5,6 +5,7 @@ import co.uos.customer.batch.CustomerTasklet;
 import co.uos.customer.batch.CustomerWriter;
 import co.uos.customer.batch.RestCustomerReader;
 import co.uos.customer.dto.customer.CustomerDTO;
+import org.hibernate.cfg.Environment;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepScope;
