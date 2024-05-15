@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/products")
-@Tag(name = "Product", description = "Product Service Documentation")
+@Tag(name = "Order", description = "Order Service Documentation")
 public class OrderController {
 }

@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 		<springdoc.mvc.vsersion>2.0.2</springdoc.mvc.vsersion>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+		<org.apache.httclient.version>4.5.13</org.apache.httclient.version>
 		<spring-boot-starter-batch.version>3.2.5</spring-boot-starter-batch.version>
 	</properties>
 	<dependencies>
@@ -43,6 +44,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch</artifactId>
 			<version>${spring-boot-starter-batch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${org.apache.httclient.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

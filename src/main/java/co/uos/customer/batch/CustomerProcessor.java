@@ -8,7 +8,7 @@ import org.springframework.batch.item.ItemProcessor;
 public class CustomerProcessor implements ItemProcessor<CustomerDTO, CustomerDTO> {
     @Override
     public CustomerDTO process(CustomerDTO item) throws Exception {
-        log.info("Process author: {}", item);
+        log.info("Process customer: {}", item);
         item.setCustomerId(item.getCustomerId());
         return item;
     }
